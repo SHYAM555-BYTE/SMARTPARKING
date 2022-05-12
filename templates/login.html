@@ -1,0 +1,51 @@
+{% extends "base2.html" %}
+{% block content %}
+<div class="content-section">
+        <form method="POST",action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group-md" style="background-color:#61A4BC;border:solid 2px black; padding:1em 0.5em 4em 0.5em;
+                                                      border-radius:2em; color:#1A132F;">
+                <h1 style="margin-top:20px; text-align:center;">LOGIN HERE</h1>
+                <div style="margin-left:10%;padding-bottom:50px">
+                 <div class="form-group-md" style="font-size:30px">
+                    {{ form.username.label(class="form-control-label", style="color:black;") }}
+                     {% if form.username.errors %}
+                        {{ form.username(class="form-controlform-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.username.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                    {% else %}
+                    {{ form.username(class="form-control form-control-lg",style="width:80%; border:solid 2px black") }}
+                     {% endif %}
+                </div>
+                    <div class="form-group-md" style="font-size:30px">
+                    {{ form.password.label(class="form-control-label", style="color:black") }}
+                        {% if form.password.errors %}
+                        {{ form.name(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.password.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                    {% else %}
+                    {{ form.password(class="form-control form-control-lg",style="width:80%;border:solid 2px black") }}
+                        {% endif %}
+                        </div>
+                    <div class="form-check" style="margin-top:20px; font-size:15px;">
+                        {{ form.remember(class="form-check-input") }}
+                        {{ form.remember.label(class="form-check-label") }}
+
+                    </div>
+                    <div class="form-group" style="margin-top:20px">
+                        {{ form.submit(class="btn btn-outline-info") }}
+                    </div>
+                    <p class="ltxt">Please register if do not have an account? <a href="{{url_for('register')}}"class="loginlink"><u>Register</u></a><br>
+                    <a href="{{url_for('reset_request')}}"class="loginlink"><u>Forgot Password?</u></a>
+                    </p>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+{% endblock content %}

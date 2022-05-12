@@ -1,0 +1,20 @@
+{% extends "base5.html" %}
+{% block content %}
+<div class="container-fluid-md">
+<div class="row-md p-2">
+    <h1>ADMIN PAGE</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <div class="form-group-md p-3">
+            <label><h3>Image of vehicle to be parked</h3></label><BR>
+                <input type="file"accept="image/*" name="image" id="image"><br>
+             <button class="buttonupload" name="upload" value="PARK">UPLOAD IMAGE</button>
+        </div>
+            <div class="form-group-md p-3">
+            <label><h3>Image of vehicle which is leaving</h3></label><BR>
+                <input type="file"accept="image/*" name="oimage" id="oimage"><br>
+             <button class="buttonupload" name="upload" value="LEAVE">UPLOAD IMAGE</button>
+            </div>
+    </form>
+    </div>
+</div>
+{% endblock content %}

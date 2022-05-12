@@ -1,0 +1,79 @@
+{% extends "base2.html" %}
+{% block content %}
+<div class="container-md-fluid p-4">
+    <div class="row-md">
+<h1>WELCOME</h1>
+    <div class="row-md" style="font-size:1.2em; text-align:center">
+    <p><b>Username</b>-{{ current_user.username }}</p>
+    <p><b>EMAIL.ADDRESS-</b> {{ current_user.email }}</p>
+    <p><b>Plate No-</b> {{ current_user.plate_no }}</p>
+        </div>
+    </div>
+    <div class="content-section">
+        <form method="POST",action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group-md" style="background-color:#61A4BC;border:solid 2px black; padding:0.5em 0.5em 2em 0.5em;
+                                                      border-radius:2em; color:#1A132F;">
+                <h1 style="margin-top:30px; text-align:center;">UPDATE YOUR PERSONAL DETAILS HERE </h1>
+                <div style="margin-left:10%;padding-bottom:50px">
+                <div class="form-group-md" style="font-size:30px">
+                    {{ form.name.label(class="form-control-label", style="color:black;") }}
+                    {% if form.name.errors %}
+                        {{ form.name(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.name.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                    {% else %}
+                    {{ form.name(class="form-control form-control-lg",style="width:80%;border:solid 2px black;") }}
+                    {% endif %}
+                </div>
+                 <div class="form-group-md" style="font-size:30px">
+                    {{ form.username.label(class="form-control-label", style="color:black;") }}
+                     {% if form.username.errors %}
+                        {{ form.username(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.username.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                    {% else %}
+                    {{ form.username(class="form-control form-control-lg",style="width:80%; border:solid 2px black") }}
+                     {% endif %}
+                </div>
+                <div class="form-group-md" style="font-size:30px">
+                    {{ form.email.label(class="form-control-label", style="color:black;") }}
+                    {% if form.email.errors %}
+                        {{ form.email(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.email.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                    {% else %}
+                    {{ form.email(class="form-control form-control-lg",style="width:80%;border:solid 2px black") }}
+                    {% endif %}
+                </div>
+                <div class="form-group-md" style="font-size:30px;">
+                    {{ form.plateno.label(class="form-control-label", style="color:black;")}}
+                    {% if form.plateno.errors %}
+                        {{ form.plateno(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.plateno.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                    {% else %}
+                    {{ form.plateno(class="form-control form-control-lg",style="width:80%;border:solid 2px black;text-transform:uppercase;") }}
+                    {% endif %}
+                </div>
+                    <div class="form-group" style="margin-top:20px">
+                        {{ form.submit(class="btn btn-outline-info") }}
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+{% endblock %}

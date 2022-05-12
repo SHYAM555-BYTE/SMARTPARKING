@@ -1,0 +1,14 @@
+{% extends "base4.html" %}
+{% block content %}
+<h1 style="padding:1em; text-align:center;">WELCOME TO THE BOOKING SECTION</h1>
+<div class="container-md-fluid" style="border-radius:2em; border: solid 2px black; padding:2em 2em 10em 2em; text-align:center">
+    <h2>Please click on the below given book button to book your slot at the plot</h2>
+    <h2 style="padding-bottom:1em">If already booked And want to cancel please click the cancel button kindly</h2>
+    <form method="POST">
+        <div class="row-md" style="padding:1em; display:flex; justify-content:space-evenly">
+        <input type="submit" name="submitbutton" value="BOOK" class="buttonbook">
+        <input type="submit" name="submitbutton" value="CANCEL" class="buttonbook">
+            </div>
+    </form>
+</div>
+{% endblock content %}
